@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  resources :teachers
   devise_for :users
-  root to: "home#index"
-  get 'index', to: 'home#index'
-  delete 'index',to: 'home#index'
-  get '/users/sign_out'
+  get "teachers/index"
+  root to: "teachers#index"
 end

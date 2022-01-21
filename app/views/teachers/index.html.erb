@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Results</h1>
+<h2>
+<table>
+  <thead>
+    <tr>
+      <th>Student name</th>
+      <!-- <th>Class</th>
+      <th>Subject</th>
+      <th>Grade</th>
+      <th>Date of birth</th>
+      <th>Marks</th> --> 
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.student_name %></td>
+        <!-- <td><%= teacher.group %></td>
+        <td><%= teacher.subject %></td>
+        <td><%= teacher.grade %></td>
+        <td><%= teacher.date_of_birth %></td>
+        <td><%= teacher.marks %></td> -->
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create Result', new_teacher_path %>
+</h2>
