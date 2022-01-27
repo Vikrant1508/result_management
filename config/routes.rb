@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  
+  # get 'students#index'
   devise_for :users
-  # get '/users/sign_in'
-  # root to: 'devise/sessions#new', as: 'user'
+  resources :students
   resources :teachers
-  get "teachers/index"
-  root to: "teachers#index"
+  get "home/new"
+  root to: "home#new"
 end
