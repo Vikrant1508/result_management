@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #333;
+  color: tomato;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -20,14 +20,14 @@ pre {
 }
 
 a {
-  color: #000;
+  color: black;
 
   &:visited {
-    color: #666;
+    color: purple;
   }
 
   &:hover {
-    color: #fff;
+    color: yellow;
     background-color: #000;
   }
 }
@@ -52,7 +52,7 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: brown;
   display: table;
 }
 
