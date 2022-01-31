@@ -1,5 +1,24 @@
-<h1>New Student</h1>
+<h1>Students Name</h1>
 
-<%= render 'form', student: @student %>
+<table>
+  <thead>
+    <tr>
+      <th>Studentname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% Teacher.all.each do |teacher| %>
+      <tr>
+        <td><%= teacher.student_name %></td>
+        <td><%= link_to 'Show', teacher %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br> 
+
 
 <%= link_to 'Back', students_path %>

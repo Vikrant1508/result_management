@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   devise_for :users,:students,:teachers
   resources :students
   resources :teachers
-  get "home/new"
-  root to: "home#new"
+  get "home/index"
+  root to: "home#index"
 end

@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :authenticate_user!
-  before_action :set_student, only: %i[ show edit update destroy ]
+  before_action :set_student_name, only: %i[ show ]
 
   # GET /students or /students.json
   def index
@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @student = Student.new
+    @teacher = Teacher.new
   end
 
   # GET /students/1/edit
