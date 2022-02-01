@@ -2,25 +2,25 @@ class TeachersController < ApplicationController
     before_action :authenticate_user!
   before_action :set_teacher, only: %i[ show edit update destroy ]
 
-  # GET /teachers or /teachers.json
+ 
   def index
     @teachers = Teacher.all
   end
 
-  # GET /teachers/1 or /teachers/1.json
+ 
   def show
   end
 
-  # GET /teachers/new
+ 
   def new
     @teacher = Teacher.new
   end
 
-  # GET /teachers/1/edit
+ 
   def edit
   end
 
-  # POST /teachers or /teachers.json
+ 
   def create
     @teacher = Teacher.new(teacher_params)
 
@@ -35,7 +35,7 @@ class TeachersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teachers/1 or /teachers/1.json
+ 
   def update
     respond_to do |format|
       if @teacher.update(teacher_params)
@@ -48,7 +48,7 @@ class TeachersController < ApplicationController
     end
   end
 
-  # DELETE /teachers/1 or /teachers/1.json
+
   def destroy
     @teacher.destroy
 
@@ -59,12 +59,12 @@ class TeachersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_teacher
       @teacher = Teacher.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    
     def teacher_params
       params.require(:teacher).permit(:student_name, :group, :subject, :grade, :date_of_birth, :marks)
     end
