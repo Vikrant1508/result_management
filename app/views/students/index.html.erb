@@ -1,40 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
-<body style="background-color: violet"> 
-<h2>
-<table>
-  <thead>
-    <tr>
-      <th>Student Name</th>
-      <!-- <th>Class</th>
-      <th>Subject</th>
-      <th>Grade</th>
-      <th>Date of birth</th>
-      <th>Marks</th> --> 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+#
 
-  <tbody>
-    <% Teacher.all.each do |teacher| %>
+  <h1>Students</h1>
+  <body style="background-color: lightgreen"> 
+  <h2>
+  <table>
+    <thead>
       <tr>
-        <td><%= teacher.student_name %></td> 
-        <td>  belongs to Mr. Ankit Chopra</td>
-        <!-- <td><%= teacher.group %></td>
-        <td><%= teacher.subject %></td>
-        <td><%= teacher.grade %></td>
-        <td><%= teacher.date_of_birth %></td>
-        <td><%= teacher.marks %></td> -->
-        <!-- <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <th>Student Name</th>
+        <th>Class</th>
+        <!--<th>Subject</th>
+        <th>Grade</th>
+        <th>Date of birth</th>
+        <th>Marks</th> --> 
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br></h2>
+    <tbody>
+      <% Teacher.all.each do |teacher| %>
+        <tr>
+          <td><%= teacher.student_name %></td> 
+           <left><td><%= teacher.group %></td></left>
+          <td>  belongs to Mr. Ankit Chopra</td>
+          <!--<td><%= teacher.subject %></td>
+          <td><%= teacher.grade %></td>
+          <td><%= teacher.date_of_birth %></td>
+          <td><%= teacher.marks %></td> -->
+          <!-- <td><%= link_to 'Show', teacher %></td>
+          <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+          <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'Results', new_student_path %> |
-<%= link_to 'Back', home_index_path %>
+  <br></h2>
+
+  <%= link_to 'Results', new_student_path %> |
+  <%= link_to 'Back', home_index_path %>
