@@ -23,9 +23,12 @@ class TeachersController < ApplicationController
  
   def create
     @teacher = Teacher.new(teacher_params)
+     # flash[:notice] = "Your Result is successfully created."
+    # redirect_to teacher_url
 
     respond_to do |format|
       if @teacher.save
+        UsermailerMailer.email(@user).deliver_later
         format.html { redirect_to teacher_url(@teacher), notice: "Result was successfully created." }
         format.json { render :show, status: :created, location: @teacher }
       else
@@ -66,6 +69,6 @@ class TeachersController < ApplicationController
 
     
     def teacher_params
-      params.require(:teacher).permit(:student_name, :group, :subject, :grade, :date_of_birth, :marks)
+      params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, :marks)
     end
 end

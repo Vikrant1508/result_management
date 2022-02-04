@@ -11,7 +11,7 @@
   <tbody>
      <% Teacher.all.each do |teacher| %>
       <tr>
-        <td><%= teacher.student_name %></td>
+        <td><%= teacher.name %></td>
         <td><%= link_to 'Show', teacher %></td>
       </tr>
     <% end %>
