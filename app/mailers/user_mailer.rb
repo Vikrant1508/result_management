@@ -1,10 +1,18 @@
 class UserMailer < ApplicationMailer
- 
-  def mail
-    @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(from:    "vikrantchourasiya1508@gmail.com",
-         to:      "vichourasiya@bestpeers.com",
-         subject: 'Your Result is Created')
+
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.user_mailer.post_created.subject
+  #
+  def post_created
+  	@user = params[:user]
+    @greeting = "Hi"
+
+   attachments['virus.jpeg'] = File.read('app/assets/images/virus.jpeg')
+   mail to: User.last.email,
+    cc: User.all.pluck(:email),
+    bcc: User.last.email,
+    subject: "your Result is Successfully Created"
   end
 end

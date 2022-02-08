@@ -28,7 +28,7 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.save
-       UserMailer.with(user: @user).mail.deliver_later
+       UserMailer.with(user: current_user,user: @user).post_created.deliver_later
         format.html { redirect_to teacher_url(@teacher), notice: "Result was successfully created." }
         format.json { render :show, status: :created, location: @teacher }
       else
