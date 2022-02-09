@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
   	@user = params[:user]
     @greeting = "Hi"
 
-   attachments['virus.jpeg'] = File.read('app/assets/images/virus.jpeg')
+   attachments['result.jpeg'] = File.read('app/assets/images/virus.jpeg')
    mail to: User.last.email,
     cc: User.all.pluck(:email),
     bcc: User.last.email,
