@@ -25,6 +25,7 @@
   <strong>Marks:</strong>
   <%= @teacher.marks %>
 </p></h2>
+<%= link_to 'Send Notification', teachers_path, remote: true %> |
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %> |
 <%= link_to 'Exit', new_student_path %> 

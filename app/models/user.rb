@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	enum role: { teachers: 1, students: 2}
+	enum role: { teachers: 0, students: 1}
+	# enum role: { admin: 0, superadmin: 1 }
 	has_many :students
 	has_one :teacher
 	validates :email, uniqueness: true

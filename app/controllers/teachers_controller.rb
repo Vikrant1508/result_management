@@ -1,10 +1,11 @@
 class TeachersController < ApplicationController
     before_action :authenticate_user!
   before_action :set_teacher, only: %i[ show edit update destroy ]
-
+  # http_basic_authenticate_with email: User.first.email, password: User.first.password, except: [:index, :show, :edit, :create, :destroy]
  
   def index
     @teachers = Teacher.all
+    ActionCable.server.broadcast('notification_channel', 'Your Result is Successfully Created')
   end
 
  

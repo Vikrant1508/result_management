@@ -5,3 +5,6 @@ class Student < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
+#  <u><%= form.label :image %></u><br><br>
+  # <%= form.file_field :image %><br><br>
+  # <td><%image_tag @post.image if @post.image.attached? %></td>
