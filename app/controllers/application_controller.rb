@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
+	# before_action :check_admin, only: [:edit, :create]
+	# def check_admin
+ #    	unless current_user.user
+ #        	redirect_to '/', :alert => "Don't have permission!"
+ #    	end
+ #  	end
 	  # before_action :authenticate_user!
 
 	# private

@@ -13,27 +13,32 @@
 
   <div class="field">
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "Name" %>
   </div>
 
   <div class="field">
     <%= form.label :group%><br>
-    <%= form.text_field :group %>
+    <%= form.text_field :group, placeholder: "Class" %>
   </div>
 
   <div class="field">
     <%= form.label :subject %><br>
-    <%= form.text_field :subject %>
+    <%= form.text_field :subject, placeholder: "Subject" %>
   </div>
 
   <div class="field">
     <%= form.label :date_of_birth %><br>
-   <%= form.date_field :date_of_birth %>
+   <%= form.date_field :date_of_birth, placeholder: "Date of Birth" %>
   </div>
 
   <div class="field">
     <%= form.label :marks %><br>
-    <%= form.text_field :marks %>
+    <%= form.text_field :marks, placeholder: "Marks" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id,id: :teachers_user_id %><br>
+    <%= form.number_field :user_id, value: current_user.id,type: :hidden %>
   </div>
 
   <div class="actions">

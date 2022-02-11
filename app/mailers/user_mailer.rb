@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
     @greeting = "Hi"
 
    attachments['result.jpeg'] = File.read('app/assets/images/virus.jpeg')
-   mail to: User.last.email,
+   mail to: User.second.email,
     cc: User.all.pluck(:email),
     bcc: User.last.email,
     subject: "your Result is Successfully Created"
