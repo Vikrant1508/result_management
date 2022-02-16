@@ -67,8 +67,8 @@ config.action_mailer.raise_delivery_errors = true
 config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :user_name            => <vikrantchourasiya1508@gmail.com>,
-  :password             => <vikrant@44>,
+  :user_name            => <vichourasiya@bestpeers.com>,
+  :password             => <kdowwiovqszijasq>,
   :authentication       => "plain",
   :enable_starttls_auto => true
 }

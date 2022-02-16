@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -48,10 +48,11 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -63,9 +64,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
    address:              'smtp.gmail.com',
    port:                 587,
-   domain:               'localhost:3000',
+   domain:               'localhost',
    user_name:            'vikrantchourasiya1508@gmail.com',
-   password:             'vikrant@44',
+   password:             'abjhwgoyaidfvtlz',
    authentication:       'plain',
    enable_starttls_auto: true  
   }
