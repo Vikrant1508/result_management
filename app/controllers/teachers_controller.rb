@@ -6,6 +6,7 @@ class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
     ActionCable.server.broadcast('notification_channel', 'Your Result is Successfully Created')
+    sleep 1
   end
 
  
@@ -15,6 +16,7 @@ class TeachersController < ApplicationController
  
   def new
     @teacher = Teacher.new
+    sleep 1
   end
 
  
@@ -24,6 +26,7 @@ class TeachersController < ApplicationController
  
   def create
     @teacher = Teacher.new(teacher_params)
+    sleep 1
      # flash[:notice] = "Your Result is successfully created."
     # redirect_to teacher_url
 
@@ -41,7 +44,7 @@ class TeachersController < ApplicationController
 
  
   def update
-    respond_to do |format|
+    respond_to do |format| sleep 1
       if @teacher.update(teacher_params)
         format.html { redirect_to teacher_url(@teacher), notice: "Result was successfully updated." }
         format.json { render :show, status: :ok, location: @teacher }
@@ -54,7 +57,7 @@ class TeachersController < ApplicationController
 
 
   def destroy
-    @teacher.destroy
+    @teacher.destroy sleep 1
 
     respond_to do |format|
       format.html { redirect_to teachers_url, notice: "Result was successfully destroyed." }
