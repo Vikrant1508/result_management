@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
- 
-  devise_for :users
-  	devise_scope :user do
-  	get 'login', to: 'students/sessions#new'
-	end
-  resources :students
+ 	resources :students
   resources :teachers
+
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+    }
   get "home/index"
-  root to: "home#index"
+  root "home#index"
+  
+  
+ 	
+ 	get '/teachers/index' => 'teachers#index'
+ 	get '/teachers/new' => 'teachers#new'
+ 	get '/students/index' => 'students#index'
+ 	get '/students/new' => 'students#new'
+
 end

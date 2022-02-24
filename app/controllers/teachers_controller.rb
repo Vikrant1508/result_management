@@ -1,7 +1,11 @@
 class TeachersController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
+
   before_action :set_teacher, only: %i[ show edit update destroy ]
-  # http_basic_authenticate_with email: User.first.email, password: User.first.password, except: [:index, :show, :edit, :create, :destroy]
+
+  caches_action  :public
+  
+  caches_action :index, :show
  
   def index
     @teachers = Teacher.all
@@ -26,7 +30,7 @@ class TeachersController < ApplicationController
  
   def create
     @teacher = Teacher.new(teacher_params)
-    sleep 1
+    sleep 0.5
      # flash[:notice] = "Your Result is successfully created."
     # redirect_to teacher_url
 
@@ -57,14 +61,22 @@ class TeachersController < ApplicationController
 
 
   def destroy
-    @teacher.destroy sleep 1
+    @teacher.destroy 
 
     respond_to do |format|
       format.html { redirect_to teachers_url, notice: "Result was successfully destroyed." }
       format.json { head :no_content }
+      sleep 1
     end
   end
-
+  protected
+    def user_cache_path
+      if params[:user_id]
+        user_list_url(params[:user_id], params[:id])
+      else
+        list_url(params[:id])
+      end
+    end
   private
     
     def set_teacher
