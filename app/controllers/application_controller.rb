@@ -8,14 +8,13 @@ class ApplicationController < ActionController::Base
  #  	end
 	  # before_action :authenticate_user!
 
-	# private
+# private
 
- #  def after_sign_in_path_for(resource)
- #    if current_user.teacher? 
- #    	redirect_to 'teachers_path'
-  		
- #  	else
- #  		redirect_to 'students_path'
- #  	end
- #  end
+#  def after_sign_up_path_for(resource)
+#     if current_user.role == 'teachers'
+#       teachers_index_path
+#     else
+#       students_index_path
+#     end
+#   end
 end

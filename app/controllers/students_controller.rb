@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :authenticate_user!
-  before_action :set_student_name, only: %i[ show ]
+  # before_action :set_student_name, only: %i[ show ]
 
   # GET /students or /students.json
   def index

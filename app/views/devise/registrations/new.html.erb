@@ -5,7 +5,12 @@
 
   <div class="field">
     <%= f.label 'User Type' %><br />
-    <%= f.select :role, options_for_select(User.roles.map{|k, v| [k, k]}, ''), {}, {class: 'form-control'} %>
+    <%= f.select :role, options_for_select(User.roles.map{|teachers, students| [teachers, teachers]}, ''), {}, {class: 'form-control'} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, placeholder: "Name" %>
   </div>
   
   <div class="field">

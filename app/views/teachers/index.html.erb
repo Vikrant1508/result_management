@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag("virus.jpg", {:style => "width:300px;"}) %>
+<%= image_tag("virus.jpg", {:style => "width:300px;"}) %><br><br>
 <body style="background-color: orange">
+   <% if current_user.teacher? %>
 <h1>Results</h1>
 <h2>
 <table>
@@ -26,12 +27,14 @@
   <colgroup>
     <col style="width: 33%" />
     <col style="width: 33%" />
+
       <tr>
         <td><%= teacher.name %></td>
          <td><%= teacher.last_name %></td>
         <!-- <td><%= teacher.subject %></td> -->
         <!-- <td><%= teacher.date_of_birth %></td> -->
         <!-- <td><%= teacher.marks %></td> --> 
+
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -42,6 +45,10 @@
 
 <br></h2>
 <h1>
+  
 <%= link_to 'Create Result', new_teacher_path %> |
+<% else %>
+you came to wrong section <br><br><br>
+<% end %>
 <%= link_to 'Back', home_index_path %>
 </h1>

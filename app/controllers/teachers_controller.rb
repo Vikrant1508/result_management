@@ -10,12 +10,11 @@ class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
     ActionCable.server.broadcast('notification_channel', 'Your Result is Successfully Created')
-    sleep 1
+    # sleep 1
   end
 
  
-  def show
-  end
+  def show; end
 
  
   def new
@@ -69,22 +68,24 @@ class TeachersController < ApplicationController
       sleep 1
     end
   end
+
   protected
-    def user_cache_path
-      if params[:user_id]
-        user_list_url(params[:user_id], params[:id])
-      else
-        list_url(params[:id])
-      end
+
+  def user_cache_path
+    if params[:user_id]
+      user_list_url(params[:user_id], params[:id])
+    else
+      list_url(params[:id])
     end
+  end
+
   private
     
-    def set_teacher
-      @teacher = Teacher.find(params[:id])
-    end
-
-    
-    def teacher_params
-      params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, :marks, :user_id, :last_name)
-    end
+  def set_teacher
+    @teacher = Teacher.find(params[:id])
+  end
+  
+  def teacher_params
+    params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, :marks, :user_id, :last_name)
+  end
 end

@@ -28,7 +28,8 @@
 
   <div class="field">
     <%= form.label :subject %><br>
-    <%= form.text_field :subject, placeholder: "Subject" %>
+<%= form.select :subject, options_for_select([['Maths'],['English'],['Science'],['Hindi']]), {:class => 'span3 controls controls-row'}, :selected => params[:subject] %>
+
   </div>
 
   <div class="field">
@@ -43,7 +44,7 @@
 
   <div class="field">
     <%= form.label :user_id,id: :teachers_user_id %><br>
-    <%= form.number_field :user_id, value: current_user.id,type: :hidden %>
+    <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
   </div>
 
   <div class="actions">
