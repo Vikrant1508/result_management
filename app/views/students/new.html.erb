@@ -1,3 +1,4 @@
+<% if current_user.teacher? %>
 <h1>Students Name</h1>
 <body style="background-color: skyblue">
 <table>
@@ -31,6 +32,8 @@
 </table>
 
 <br> 
-
+<% else %>
+Enter your Name on Search Button to view your Result ~~~~> <br>
+<% end %>
 
 <%= link_to 'Back', students_path %>

@@ -1,4 +1,4 @@
-<%= form_with(model: teacher, local: true) do |form| %>
+<%= bootstrap_form_with(model: teacher, local: true) do |form| %>
   <% if teacher.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
@@ -12,38 +12,31 @@
   <% end %><h2>
 
   <div class="field">
-    <%= form.label :name %><br>
     <%= form.text_field :name, placeholder: "Name" %>
   </div>
   
   <div class="field">
-    <%= form.label :last_name %><br>
     <%= form.text_field :last_name, placeholder: "Last Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :group%><br>
-    <%= form.text_field :group, placeholder: "Class" %>
+    <%= form.select :group, options_for_select([['10th'],['11th'],['12th']]), {:class => 'span3 controls controls-row'}, :selected => params[:group] %>
   </div>
 
   <div class="field">
-    <%= form.label :subject %><br>
 <%= form.select :subject, options_for_select([['Maths'],['English'],['Science'],['Hindi']]), {:class => 'span3 controls controls-row'}, :selected => params[:subject] %>
 
   </div>
 
   <div class="field">
-    <%= form.label :date_of_birth %><br>
    <%= form.date_field :date_of_birth, placeholder: "Date of Birth" %>
   </div>
 
   <div class="field">
-    <%= form.label :marks %><br>
     <%= form.text_field :marks, placeholder: "Marks" %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id,id: :teachers_user_id %><br>
     <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
   </div>
 

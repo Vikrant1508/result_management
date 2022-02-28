@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
-<body style="background-color: grey">
-<h2>
+<body style="background-color: skyblue"> <h2>
   
 <p>
   <strong>Student name:</strong>
@@ -33,8 +32,10 @@
 <% if current_user.teacher? %>
   <%= link_to 'Send Notification', teachers_path, remote: true %> |
   <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-  <%= link_to 'Back', teachers_path %> 
 <% else %>
   <%= link_to 'Exit', new_student_path %> 
+<% end %>
+<% if current_user.teacher? %>
+<%= link_to 'Back', students_path %> 
 <% end %>
 

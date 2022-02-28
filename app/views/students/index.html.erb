@@ -6,13 +6,13 @@
   <table>
     <thead>
       <tr>
-        <table id="student" border="2" layout= "fixed" width=" 50%"  >
+        <table id="student" border="2" layout= "fixed" width=" 60%"  >
         <colgroup>
         <col style="width: 29%" />
         <col style="width: 29%" />
         <col style="width: 20%" />
         <th>Student Name</th>
-        <th>Last Nmae</th>
+        <th>Last Name</th>
         <th>Class</th>
         <!-- <th>Grade</th>
         <th>Date of birth</th>
@@ -24,7 +24,7 @@
     <tbody>
       <% Teacher.all.each do |teacher| %>
         <tr>
-          <table id="teacher" border="2" layout= "fixed" width=" 50%"  >
+          <table id="teacher" border="1" layout= "fixed" width=" 60%"  >
           <colgroup>
           <col style="width: 30%" />
           <col style="width: 30%" />
@@ -35,8 +35,7 @@
           <td><%= teacher.last_name %></td> 
            <left><td><%= teacher.group %></td></left>
           <td>  belongs to Mr. Ankit Chopra</td>
-          <!--<td><%= teacher.subject %></td>
-         
+         <!-- 
           <td><%= teacher.date_of_birth %></td>
           <td><%= teacher.marks %></td> -->
           <!-- <td><%= link_to 'Show', teacher %></td>

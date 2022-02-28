@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   resources :students
   resources :teachers
 
-  # devise_for :users, controllers: {
-  #       sessions: 'users/sessions'
-  #   }
+    get "/search" => "teachers#search"
 
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions:      'users/sessions' }

@@ -16,10 +16,18 @@ class TeachersController < ApplicationController
  
   def show; end
 
+  def search
+    if params[:search].blank?
+      redirect_to(teachers_path, alert: "Empty field!") and return
+    else
+       # keyword = params[:search]
+       @teachers = Teacher.where(["name LIKE ?", "%#{params[:search]}%" ])
+    end
+  end
  
   def new
     @teacher = Teacher.new
-    sleep 1
+    sleep 0.3
   end
 
  
@@ -86,6 +94,6 @@ class TeachersController < ApplicationController
   end
   
   def teacher_params
-    params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, :marks, :user_id, :last_name)
+    params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, :marks, :user_id, :last_name, :search)
   end
 end

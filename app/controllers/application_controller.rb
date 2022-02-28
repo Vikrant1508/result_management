@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
  #        	redirect_to '/', :alert => "Don't have permission!"
  #    	end
  #  	end
-	  # before_action :authenticate_user!
 
 # private
 
