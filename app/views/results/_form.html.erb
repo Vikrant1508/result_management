@@ -1,0 +1,46 @@
+<%= bootstrap_form_with(model: result, local: true) do |form| %>
+  <% if result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(result.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% result.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %><h2>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+  
+  <div class="field">
+    <%= form.text_field :last_name, placeholder: "Last Name" %>
+  </div>
+
+  <div class="field">
+    <%= form.select :group, options_for_select([['10th'],['11th'],['12th']]), {:class => 'span3 controls controls-row'}, :selected => params[:group] %>
+  </div>
+
+  <div class="field">
+<%= form.select :subject, options_for_select([['Maths'],['English'],['Science'],['Hindi']]), {:class => 'span3 controls controls-row'}, :selected => params[:subject] %>
+
+  </div>
+
+  <div class="field">
+   <%= form.date_field :date_of_birth, placeholder: "Date of Birth" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :marks, placeholder: "Marks" %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Result" %>
+  </div>
+<% end %></h2>

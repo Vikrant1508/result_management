@@ -1,16 +1,12 @@
 class TeachersController < ApplicationController
   before_action :authenticate_user!
-
-  before_action :set_teacher, only: %i[ show edit update destroy ]
-
+  before_action :set_teacher, only: %i[show edit update destroy]
   caches_action  :public
-  
   caches_action :index, :show
  
   def index
     @teachers = Teacher.all
-    ActionCable.server.broadcast('notification_channel', 'Your Result is Successfully Created')
-    # sleep 1
+    # ActionCable.server.broadcast('notification_channel', 'Your Result is Successfully Created')
   end
 
  
@@ -18,28 +14,24 @@ class TeachersController < ApplicationController
 
   def search
     if params[:search].blank?
-      redirect_to(teachers_path, alert: "Empty field!") and return
+      redirect_to(teachers_path, alert: "Enter Valid Name!") and return
     else
        # keyword = params[:search]
        @teachers = Teacher.where(["name LIKE ?", "%#{params[:search]}%" ])
+       # @teachers = Teacher.where("name LIKE ?", params[:search])
     end
   end
  
   def new
     @teacher = Teacher.new
-    sleep 0.3
   end
 
  
-  def edit
-  end
+  def edit; end
 
  
   def create
     @teacher = Teacher.new(teacher_params)
-    sleep 0.5
-     # flash[:notice] = "Your Result is successfully created."
-    # redirect_to teacher_url
 
     respond_to do |format|
       if @teacher.save
@@ -55,7 +47,7 @@ class TeachersController < ApplicationController
 
  
   def update
-    respond_to do |format| sleep 1
+    respond_to do |format| 
       if @teacher.update(teacher_params)
         format.html { redirect_to teacher_url(@teacher), notice: "Result was successfully updated." }
         format.json { render :show, status: :ok, location: @teacher }
@@ -73,7 +65,6 @@ class TeachersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to teachers_url, notice: "Result was successfully destroyed." }
       format.json { head :no_content }
-      sleep 1
     end
   end
 
@@ -94,6 +85,7 @@ class TeachersController < ApplicationController
   end
   
   def teacher_params
-    params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, :marks, :user_id, :last_name, :search)
+    params.require(:teacher).permit(:name, :group, :subject, :date_of_birth, 
+                                    :marks, :user_id, :last_name, :search)
   end
 end

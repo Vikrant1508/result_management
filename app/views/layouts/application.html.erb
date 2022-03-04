@@ -33,23 +33,23 @@
    <div class="input-group">  
     <%= search_field_tag :search, params[:search], placeholder: "Search Student", class: "form-control" %>  
     <div class="input-group-btn">  
-      <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:name => nil%>  
+      <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:name => nil %>  
     </div> 
   </div>  
   <% end %>
 
     </div>
   </div>
-</nav><br>
-  <body><h2>
+</nav>
+  <body><h4>
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
     <p class="navbar-text float-right">
     
     <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.name %></strong>.<br>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      Logged in as <strong><%= current_user.email %></strong>
+      <%= button_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
     <% else %>
     <!--  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>  -->

@@ -2,7 +2,27 @@
 
 <p>
   <strong>Student Name:</strong>
-  <%= @teacher.name %>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @student.last_name %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @student.group %>
+</p>
+
+<p>
+  <strong>Date Of Birth:</strong>
+  <%= @student.date_of_birth %>
+</p>
+
+<p>
+  <strong>Contact No:</strong>
+  <%= @student.contact_no %>
 </p>
  
 <%= link_to 'Back', students_path %>

@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-  <h1>Students</h1>
-  <body style="background-color: lightgreen"> 
+<% if current_user.teacher? %>
+  <h1>Students</h1> 
   <h2>
   <table>
     <thead>
@@ -22,26 +21,19 @@
     </thead>
 
     <tbody>
-      <% Teacher.all.each do |teacher| %>
+      <% Student.all.each do |student| %>
         <tr>
-          <table id="teacher" border="1" layout= "fixed" width=" 60%"  >
+          <table id="student" border="1" layout= "fixed" width=" 60%"  >
           <colgroup>
           <col style="width: 30%" />
           <col style="width: 30%" />
           <col style="width: 20%" />
           <col style="height: 30%" />
           
-          <td><%= teacher.name %></td>
-          <td><%= teacher.last_name %></td> 
-           <left><td><%= teacher.group %></td></left>
+          <td><%= student.name %></td>
+          <td><%= student.last_name %></td> 
+          <left><td><%= student.group %></td></left>
           <td>  belongs to Mr. Ankit Chopra</td>
-         <!-- 
-          <td><%= teacher.date_of_birth %></td>
-          <td><%= teacher.marks %></td> -->
-          <!-- <td><%= link_to 'Show', teacher %></td>
-          <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-          <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-        </tr>
       <% end %>
     </tbody>
   </table>
@@ -50,3 +42,39 @@
 
   <%= link_to 'Results', new_student_path %> |
   <%= link_to 'Back', home_index_path %>
+  <% else %>
+  <%= link_to 'Create your Account', new_student_path %> <br>
+  <%= link_to "Back", home_index_path %>
+  <table>
+    <thead>
+      <tr>
+        <table id="student" border="2" layout= "fixed" width=" 60%"  >
+        <colgroup>
+        <col style="width: 29%" />
+        <col style="width: 29%" />
+        <th>Student Name</th>
+        <th>Last Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  <tbody>
+    <% Student.all.each do |student| %><br>
+
+      <tr>
+          <table id="student" border="1" layout= "fixed" width=" 60%"  >
+          <colgroup>
+          <col style="width: 30%" />
+          <col style="width: 30%" />
+          
+          <td><%= student.name %></td>
+          <td><%= student.last_name %></td> 
+          <td> belongs to Mr. Ankit Chopra </td>
+          <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        </tr>
+  </tbody>
+    <% end %>
+
+  <% end %>
+
+  
+  

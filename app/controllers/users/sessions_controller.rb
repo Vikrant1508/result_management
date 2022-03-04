@@ -5,7 +5,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
   # end
 
   # POST /resource/sign_in
@@ -20,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
   def configure_log_in_params
-    devise_parameter_sanitizer.permit(:log_in, keys: %w[role])
+    devise_parameter_sanitizer.permit(:log_in, keys: %w[admin])
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

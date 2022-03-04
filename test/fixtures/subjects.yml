@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  english: MyString
+  Hindi: MyString
+  Science: MyString
+  social_science: MyString
+  maths: MyString
+
+two:
+  english: MyString
+  Hindi: MyString
+  Science: MyString
+  social_science: MyString
+  maths: MyString

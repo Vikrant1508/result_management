@@ -1,10 +1,10 @@
+
 <% if current_user.teacher? %>
 <h1>Students Name</h1>
-<body style="background-color: skyblue">
 <table>
   <thead>
     <tr>
-      <table id="student" border="2" layout= "fixed" width=" 30%"  >
+      <table id="student" border="2" layout= "fixed" width=" 40%"  >
         <colgroup>
         <col style="width: 30%" />
         <col style="width: 30%" />
@@ -18,14 +18,14 @@
   <tbody>
      <% Teacher.all.each do |teacher| %>
       <tr>
-        <table id="student" border="2" layout= "fixed" width=" 30%"  >
+        <table id="student" border="2" layout= "fixed" width=" 40%"  >
         <colgroup>
         <col style="width: 30%" />
         <col style="width: 30%" />
         <col style="width: 10%" />
         <td><%= teacher.name %></td>
         <td><%= teacher.last_name %></td>
-        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'View', teacher %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,6 +34,8 @@
 <br> 
 <% else %>
 Enter your Name on Search Button to view your Result ~~~~> <br>
-<% end %>
 
+<%= render 'form', student: @student %>
+
+<%end %>
 <%= link_to 'Back', students_path %>
