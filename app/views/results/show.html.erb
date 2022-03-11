@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
- <h2>
+ <h5>
   
 <p>
   <strong>Student name:</strong>
@@ -24,18 +24,14 @@
   <strong>Date of birth:</strong>
   <%= @result.date_of_birth %>
 </p>
-
-<p>
-  <strong>Marks:</strong>
-  <%= @result.marks %>
-</p></h2>
+</h5>
 <% if current_user.teacher? %>
-  <%= link_to 'Send Notification', results_path, remote: true %> |
-  <%= link_to 'Edit', edit_result_path(@result) %> |
+  <a class="nav-link active", <%= link_to 'Send Notification', results_path, remote: true %></a> 
+  <a class="nav-link active", <%= link_to 'Edit', edit_result_path(@result) %></a> 
 <% else %>
-  <%= link_to 'Exit', new_student_path %> 
+  <a class="nav-link active", <%= link_to 'Exit', students_path %> </a> 
 <% end %>
 <% if current_user.teacher? %>
-<%= link_to 'Back', results_path %> 
+<a class="nav-link active", <%= link_to 'Back', results_path %> 
 <% end %>
 

@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
- <h2>
+ <h4>
   
 <p>
-  <strong>Student name:</strong>
-  <%= @teacher.name %>
+  <strong>Teacher name:</strong>
+  <%= @teacher.name.capitalize %>
 </p>
  
  <strong>Last name:</strong>
-  <%= @teacher.last_name %>
+  <%= @teacher.last_name.capitalize %>
 </p>
 
 <p>
@@ -20,13 +20,18 @@
   <%= @teacher.date_of_birth %>
 </p>
 
-</h2>
+<p>
+  <strong>Contact No:</strong>
+  <%= @teacher.contact_no %>
+</p>
+
+</h4>
 <% if current_user.teacher? %>
-  <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+ <a class="nav-link active", <%= link_to 'Edit', edit_teacher_path(@teacher) %></a> 
 <% else %>
-  <%= link_to 'Exit', new_student_path %> 
+<a class="nav-link active",  <%= link_to 'Exit', new_student_path %> </a>
 <% end %>
 <% if current_user.teacher? %>
-<%= link_to 'Back', teachers_path %> 
+<a class="nav-link active", <%= link_to 'Back', teachers_path %> </a>
 <% end %>
 

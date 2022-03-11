@@ -1,5 +1,9 @@
+<% if current_user.teacher? %>
 <h1>Fill your Details</h1>
 
 <%= render 'form', teacher: @teacher %>
 
-<%= link_to 'Back', teachers_path %>
+<a class="nav-link active", <%= link_to 'Back', teachers_path %> </a>
+<% else %>
+<h1> Aapka idhar koi kaam nii he aap jaa sakte he </h1>
+<% end %>

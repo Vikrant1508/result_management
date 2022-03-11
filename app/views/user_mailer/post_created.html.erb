@@ -1,7 +1,7 @@
 <h1>Visit for Enquiry</h1>
 
 <p>
-  <%= User.last.email %>  <%= 'is admin of this Website' %><br><br>
-  <%= User.last.name %>
+  <%= @user.email %>  <%= 'is admin of this Website' %><br><br>
+  <%= @user.name %>
   <%= image_tag("logo.jpg", {:style =>  "width:200px;"}) %>
   </p>

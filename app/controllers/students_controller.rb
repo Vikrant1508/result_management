@@ -4,10 +4,11 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    # @my_students = current_user.students
   end
 
   def show
-     # @students = Student.find(params[:id])
+     @students = Student.find(params[:id])
   end
 
   def new
@@ -18,7 +19,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-    # debugger
     @student = Student.new(student_params)
 
     respond_to do |format|
@@ -61,6 +61,6 @@ class StudentsController < ApplicationController
 
     
     def student_params
-      params.require(:student).permit(:name,:last_name,:class,:date_of_birth,:contact_no)
+      params.require(:student).permit(:name,:last_name,:group,:date_of_birth,:contact_no)
     end
 end

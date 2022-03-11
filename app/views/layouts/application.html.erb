@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Result Management System</a>
@@ -22,40 +22,41 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page", <%= link_to 'Home', home_index_path %></a> 
-         
-          </li>
+        </li>
         <li class="nav-item">
-          <a class="nav-link Contact Us", <%= link_to 'Contact Us' %></a>
+          <a class="nav-link active" aria-current="page", <%= link_to 'About', home_about_path %></a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active", <%= link_to 'Contact Us', home_new_path %></a>
         </li>
       </ul>
        <%= form_tag(search_path, :method => "get",   
-   class: 'navbar-form navbar-left') do %>  
-   <div class="input-group">  
-    <%= search_field_tag :search, params[:search], placeholder: "Search Student", class: "form-control" %>  
-    <div class="input-group-btn">  
-      <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:name => nil %>  
-    </div> 
-  </div>  
-  <% end %>
+      class: 'navbar-form navbar-left') do %>  
+      <div class="input-group">  
+      <%= search_field_tag :search, params[:search], placeholder: "Search Student", class: "form-control" %>  
+      <div class="input-group-btn">  
+      <%= button_tag "Search", :class => 'btn btn-primary glyphicon glyphicon-search',:name => nil %></div> 
+      </div>  
+      <% end %>
 
     </div>
   </div>
-</nav>
-  <body><h4>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+
     <p class="navbar-text float-right">
-    
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>
-      <%= button_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+    <center>
+    <% if user_signed_in? %><marquee>
+      Logged in as <%= current_user.role %> <strong><%= current_user.email %></strong>
+    </marquee>
+      <%= link_to 'Edit profile',edit_user_registration_path, :class => 'navbar-link' %> 
       <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-    <!--  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>  -->
+      <p class="notice"><%= notice %></p>  
+      <p class="alert"><%= alert %></p>
+    </center>
+    <body>
     <% end %>
-    </p> 
+    </p> </nav>
+  </marquee>
     <%= yield %>
 
-  </h2></body></center>
+  </h6></body></center>
 </html>

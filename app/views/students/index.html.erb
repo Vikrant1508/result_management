@@ -1,80 +1,44 @@
 <p id="notice"><%= notice %></p>
 <% if current_user.teacher? %>
-  <h1>Students</h1> 
+  <marquee><h1>Students</h1></marquee> 
   <h2>
-  <table>
-    <thead>
-      <tr>
-        <table id="student" border="2" layout= "fixed" width=" 60%"  >
-        <colgroup>
-        <col style="width: 29%" />
-        <col style="width: 29%" />
-        <col style="width: 20%" />
-        <th>Student Name</th>
-        <th>Last Name</th>
-        <th>Class</th>
-        <!-- <th>Grade</th>
-        <th>Date of birth</th>
-        <th>Marks</th> --> 
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <a class="nav-link active", <%= link_to 'Results', new_student_path %></a>
+  <a class="nav-link active", <%= link_to 'Back', home_index_path %></a>
 
     <tbody>
+      <div class="row">
       <% Student.all.each do |student| %>
         <tr>
-          <table id="student" border="1" layout= "fixed" width=" 60%"  >
-          <colgroup>
-          <col style="width: 30%" />
-          <col style="width: 30%" />
-          <col style="width: 20%" />
-          <col style="height: 30%" />
-          
-          <td><%= student.name %></td>
-          <td><%= student.last_name %></td> 
-          <left><td><%= student.group %></td></left>
-          <td>  belongs to Mr. Ankit Chopra</td>
+        <div class="card" style="width: 20rem;, height: 1rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= student.name.capitalize%>  <%= student.last_name.capitalize %></h5><br>
+        <p class="card-text">
+        <%= student.group %><br>
+        belongs to <%= Teacher.name %>
+        </p>
+        <a class="nav-link active", <%= link_to 'View', student %></a>
+      </div>
+      </div>
       <% end %>
-    </tbody>
-  </table>
-
-  <br></h2>
-
-  <%= link_to 'Results', new_student_path %> |
-  <%= link_to 'Back', home_index_path %>
-  <% else %>
-  <%= link_to 'Create your Account', new_student_path %> <br>
-  <%= link_to "Back", home_index_path %>
-  <table>
-    <thead>
-      <tr>
-        <table id="student" border="2" layout= "fixed" width=" 60%"  >
-        <colgroup>
-        <col style="width: 29%" />
-        <col style="width: 29%" />
-        <th>Student Name</th>
-        <th>Last Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+      <% else %>
   <tbody>
+    <h4><center> Enter Your Name to Search Bar for Result</h4>
+    <div class="row">
     <% Student.all.each do |student| %><br>
 
       <tr>
-          <table id="student" border="1" layout= "fixed" width=" 60%"  >
-          <colgroup>
-          <col style="width: 30%" />
-          <col style="width: 30%" />
-          
-          <td><%= student.name %></td>
-          <td><%= student.last_name %></td> 
-          <td> belongs to Mr. Ankit Chopra </td>
-          <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <div class="card" style="width: 15rem;, height: 1rem;" >
+        <div class="card-body">
+          <h3 class="card-title"><%= student.name.capitalize%>  <%= student.last_name.capitalize %></h3><br>
+          <p class="card-text">
+            <%= student.group %><br>
+            belongs to <%= Teacher.name %>
+          </p>
+          <a class="nav-link active", <%= link_to 'View', student %></a>
+        </div>
+        </div>
         </tr>
   </tbody>
     <% end %>
 
   <% end %>
-
-  
-  

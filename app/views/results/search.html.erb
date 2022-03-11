@@ -3,30 +3,19 @@
   <div name="">
    <div class="row">
    	<h5>
-<table>
-  <thead>
-    <tr>
-      <table id="result" border="2" layout= "fixed" width=" 50%"  >
-  <colgroup>
-    <col style="width: 33%" />
-    <col style="width: 33%" />
-      <th>Student Name</th>
-      <th>Last name</th> 
-      
-         <th>Class</th>
-    
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-    <% @results.each do |result| %>
-	<tr>
-        <td><%= result.name %></td>
-         <td><%= result.last_name %></td>
-        
-         <td><%= result.group %></td>
-         
-        <td><%= link_to 'View', result %></td>
+    <% @result.each do |result| %>
+    <div class="row">
+	    <tr>
+        <div class="card" style="width: 20rem;, height: 1rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= result.name.capitalize%>  <%= result.last_name.capitalize %></h5><br>
+        <p class="card-text">
+        <%= result.group %><br>
+        </p>
+        <a <%= link_to 'View', result %></a>
+      </div>
+      </div>
       </tr>
  	<% end %>
 </div>

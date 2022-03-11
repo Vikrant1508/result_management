@@ -20,7 +20,7 @@
   </div>
 
   <div class="field">
-<%= form.select :subject, options_for_select([['Maths'],['English'],['Science'],['Hindi']]), {:class => 'span3 controls controls-row'}, :selected => params[:subject] %>
+<%= form.select :subject, options_for_select([['Maths'],['English'],['Science'],['Hindi'],['Social science']]), {:class => 'span3 controls controls-row'}, :selected => params[:subject] %>
 
   </div>
 
@@ -29,17 +29,12 @@
   </div>
 
   <div class="field">
-    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= form.password_field :password, autofocus: true, autocomplete: "current-password" %>
+    <%= form.text_field :contact_no, placeholder: "Contact No" %>
   </div>
 
   <div class="field">
     <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
   </div>
-
 
   <div class="actions">
     <%= form.submit "Save" %>

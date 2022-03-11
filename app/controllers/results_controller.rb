@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_result, only: %i[show edit update destroy]
-  caches_action  :public
+  caches_action :public
   caches_action :index, :show
  
   def index
@@ -10,32 +10,36 @@ class ResultsController < ApplicationController
   end
 
  
-  def show;  end
+  def show
+  	@result = Result.find(params[:id])
+  end
 
   def search
     if params[:search].blank?
       redirect_to(result_path, alert: "Enter Valid Name!") and return
     else
-       # keyword = params[:search]
        @result = Result.where(["name LIKE ?", "%#{params[:search]}%" ])
-       # @teachers = Teacher.where("name LIKE ?", params[:search])
     end
   end
  
   def new
     @result = Result.new
+    @subject = Subject.new
   end
 
  
-  def edit; end
+  def edit
+  	@result = Result.find(params[:id])
+  end
 
  
   def create
     @result = Result.new(result_params)
+    @subject = Subject.new
 
     respond_to do |format|
       if @result.save
-       # UserMailer.with(user: current_user,user: @user).post_created.deliver_later
+        UserMailer.with(user: current_user,user: @user).post_created.deliver_later
         format.html { redirect_to result_url(@result), notice: "Result was successfully created." }
         format.json { render :show, status: :created, location: @result }
       else
@@ -82,10 +86,11 @@ class ResultsController < ApplicationController
     
   def set_result 
     @result = Result.find(params[:id])
+    # @subject = Subject.find(params[:id])
   end
   
   def result_params
     params.require(:result).permit(:name, :group, :subject, :date_of_birth, 
-                                    :marks, :user_id, :last_name, :search)
+                                    :marks, :user_id, :last_name, :search,)
   end
 end

@@ -19,15 +19,13 @@
     </tr>
   </thead>
 
-    <% @teachers.each do |teacher| %>
-	<tr>
+  <% Teacher.all.each do |teacher| %>
+		<tr>
         <td><%= teacher.name %></td>
-         <td><%= teacher.last_name %></td>
-        
-         <td><%= teacher.group %></td>
+        <td><%= teacher.last_name %></td>
          
-        <td><%= link_to 'View', teacher %></td>
-      </tr>
+        <td><a class="nav-link active", <%= link_to 'View', teacher %></a></td>
+    </tr>
  	<% end %>
 </div>
  </div>

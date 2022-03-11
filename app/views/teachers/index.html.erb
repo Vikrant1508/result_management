@@ -1,9 +1,35 @@
-<center>
+
 <p id="notice"><%= notice %></p>
   <% if current_user.teacher? %>
-  <%= link_to 'Show result',result_path(:id) %>
+  <a class="nav-link active", <%= link_to 'Create Your Account', new_teacher_path %> <br>
+  <a class="nav-link active", <%= link_to 'Show result',results_path %>
+  <footer>
+    <a class="nav-link active", <%= link_to 'Back', home_index_path %></a>    
+  </footer><br>
+  <table><marquee>
+    <h2>Teachers</h2></marquee>
+  <tbody>
+    <div class="row">
+    <% Teacher.all.each do |teacher| %>
+    <div class="card" style="width: 20rem;, height: 1rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= teacher.name.capitalize %> </h5><br>
+        <p class="card-text">
+        </p>
+        <a class="nav-link active", <%= link_to 'View', teacher %></a>
+      </div>
+      </div>
+    <% end %>
+  </tbody>
+</table>
   <% else %>
   you came to wrong section <br><br><br>
   <% end %>
-  <%= link_to 'Back', home_index_path %>
-</h1>
+
+  <% @my_students.each do |ms| %>
+  <tr>
+    <td><% @teachers.name %></td>
+  </tr>
+  <% end %>
+  </h1>
+  

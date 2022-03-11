@@ -1,0 +1,32 @@
+<%= form_for @subject do |f| %>
+    <% if subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subject.errors.count, "error") %> prohibited this result from being saved:</h2>
+
+      <ul>
+      <% subject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="field">
+      <%= form.text_field :Science, placeholder: 'Enter Marks' %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :maths, placeholder: 'Enter Marks' %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :english, placeholder: 'Enter Marks' %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :Hindi, placeholder: 'Enter Marks' %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :social_science, placeholder: "Enter Marks" %>
+      </div>
+  <% end %>
